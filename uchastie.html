@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Стать участником — ТехнологИИ права 2026</title>
+<meta name="description" content="Бронирование участия в конференции «ТехнологИИ права» 25–26 сентября 2026, Москва, БЦ «Красные Ворота». Выберите тариф и оставьте заявку — пришлём счёт с QR-кодом.">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<style>
+:root{
+  --cream:#F1F0EA; --ink:#17161C; --lime:#D9F24A; --lime-hi:#E7FA6B;
+  --violet:#5B3DF5; --verm:#FF5A1F; --white:#FFFFFF;
+  --gray:#63626C; --gray2:#34333C; --ondark:#B9B8C4; --ondark2:#C9C8D2;
+  --line:rgba(23,22,28,.13); --err:#D93025;
+  --disp:'Unbounded', -apple-system, BlinkMacSystemFont, sans-serif;
+  --body:'Golos Text', system-ui, -apple-system, sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--body);line-height:1.55;
+  min-height:100dvh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+:focus-visible{outline:3px solid var(--violet);outline-offset:2px;border-radius:6px}
+
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(16px,2vw,24px)}
+.top{padding:18px 0 6px}
+.back{display:inline-flex;align-items:center;gap:9px;color:var(--gray);text-decoration:none;font-size:14px;font-weight:500;padding:12px 0;min-height:44px}
+.back:hover{color:var(--ink)}
+
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;padding-bottom:14px}
+.c2{grid-column:span 2}.c4{grid-column:span 4}.c6{grid-column:span 6}
+@media(max-width:900px){.bento>*{grid-column:1/-1}}
+
+.eb{font-family:var(--disp);font-weight:700;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase}
+h1{font-family:var(--disp);font-weight:900;font-size:clamp(30px,4.6vw,56px);line-height:1;letter-spacing:-.025em}
+h2{font-family:var(--disp);font-weight:900;font-size:19px;letter-spacing:-.015em}
+.sub{font-size:clamp(14.5px,1.3vw,16px);line-height:1.55;color:var(--ondark2)}
+
+/* hero */
+.hero{background:var(--ink);color:var(--cream);border-radius:26px;padding:clamp(26px,3.4vw,48px);position:relative;overflow:hidden}
+.blob{position:absolute;border-radius:50%;pointer-events:none}
+.hero .rel{position:relative}
+
+/* summary */
+.sum{background:var(--lime);color:var(--ink);border-radius:26px;padding:clamp(22px,2.4vw,28px);
+  display:flex;flex-direction:column;justify-content:space-between;gap:18px;min-height:230px}
+.sum .price{font-family:var(--disp);font-weight:900;font-size:clamp(30px,3.4vw,40px);letter-spacing:-.03em;
+  line-height:1;font-variant-numeric:tabular-nums}
+.sum .tname{font-size:13.5px;font-weight:600;margin-top:7px}
+.sum .bonus{margin-top:14px;background:rgba(23,22,28,.1);border-radius:12px;padding:10px 12px;font-size:11.8px;line-height:1.45}
+.sum .bonus[hidden]{display:none}
+
+/* facts */
+.fact{border-radius:26px;padding:20px 21px}
+.fact .k{font-family:var(--disp);font-weight:900;font-size:17.5px;letter-spacing:-.01em;line-height:1.15}
+.fact .v{font-size:12.8px;margin-top:7px;line-height:1.45}
+
+/* form card */
+.card{background:var(--white);border-radius:26px;padding:clamp(20px,2.6vw,34px)}
+.step{font-family:var(--disp);font-weight:700;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--violet)}
+
+.seg{display:inline-flex;background:rgba(23,22,28,.06);border-radius:999px;padding:5px;gap:4px;margin-bottom:24px}
+.seg button{font-family:var(--disp);font-weight:700;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;
+  border:none;background:transparent;color:var(--gray);border-radius:999px;padding:12px 17px;cursor:pointer;
+  min-height:44px;transition:background .18s var(--ease),color .18s var(--ease)}
+.seg button[aria-selected="true"]{background:var(--ink);color:var(--lime)}
+.seg button:active{transform:scale(.97)}
+
+/* tariffs */
+.tar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+@media(max-width:860px){.tar{grid-template-columns:1fr 1fr}}
+@media(max-width:460px){.tar{grid-template-columns:1fr}}
+.tar input{position:absolute;opacity:0;width:0;height:0}
+.tf{position:relative;display:block;border:1.5px solid var(--line);border-radius:18px;padding:17px 15px 15px;
+  background:var(--white);cursor:pointer;transition:border-color .18s var(--ease),transform .18s var(--ease),box-shadow .18s var(--ease)}
+.tf:hover{transform:translateY(-2px)}
+.tf .n,.tf .p,.tf .d{display:block}
+.tf .n{font-weight:700;font-size:14.5px}
+.tf .p{font-family:var(--disp);font-weight:900;font-size:22px;letter-spacing:-.02em;margin-top:6px;font-variant-numeric:tabular-nums}
+.tf .d{font-size:12.4px;color:var(--gray);margin-top:6px;line-height:1.4}
+.tar input:checked + .tf{border-color:var(--ink);box-shadow:0 0 0 3px rgba(23,22,28,.09)}
+.tar input:focus-visible + .tf{outline:3px solid var(--violet);outline-offset:2px}
+.tf .badge{position:absolute;top:-9px;right:12px;background:var(--verm);color:#FFF7F2;
+  font-family:var(--disp);font-weight:700;font-size:9px;letter-spacing:.07em;text-transform:uppercase;padding:5px 9px;border-radius:999px}
+
+/* fields — плавающие лейблы */
+.fields{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.grid2{grid-template-columns:1fr}}
+.f{position:relative}
+/* 16px — иначе iOS зумит поле при фокусе */
+.f input{width:100%;background:var(--white);border:1.5px solid var(--line);border-radius:14px;
+  padding:23px 15px 9px;font:inherit;font-size:16px;color:var(--ink);min-height:58px;
+  transition:border-color .16s var(--ease),box-shadow .16s var(--ease)}
+.f label{position:absolute;left:16px;top:17px;font-size:16px;color:#8F8E99;pointer-events:none;
+  transition:transform .16s var(--ease),font-size .16s var(--ease),color .16s var(--ease);transform-origin:left top}
+.f input:focus{outline:none;border-color:var(--violet);box-shadow:0 0 0 3px rgba(91,61,245,.14)}
+.f input:focus + label,.f input:not(:placeholder-shown) + label{transform:translateY(-9px) scale(.76);color:var(--gray)}
+.f input[aria-invalid="true"]{border-color:var(--err);box-shadow:0 0 0 3px rgba(217,48,37,.12)}
+.f .msg{display:none;margin-top:6px;font-size:12.4px;color:var(--err)}
+.f input[aria-invalid="true"] ~ .msg{display:block}
+.hint{font-size:12.6px;color:var(--gray);margin-top:10px}
+
+/* consent */
+.cons{border:1.5px solid var(--line);border-radius:18px;padding:16px 17px;margin-top:20px;background:#FCFCFB}
+.cons .t{font-size:12.7px;line-height:1.55;color:var(--gray2)}
+.cons a{color:var(--violet);text-underline-offset:2px}
+.chk{display:flex;gap:11px;align-items:flex-start;margin-top:13px;font-size:12.9px;color:var(--gray2);
+  cursor:pointer;line-height:1.45;padding:4px 0;min-height:44px;align-items:center}
+.chk input{width:20px;height:20px;flex:none;accent-color:var(--violet);cursor:pointer}
+.chk[data-err="1"]{color:var(--err)}
+
+.cta{width:100%;border:none;border-radius:16px;padding:19px;font-family:var(--disp);font-weight:900;font-size:14.5px;
+  letter-spacing:.02em;cursor:pointer;background:var(--ink);color:var(--lime);margin-top:18px;min-height:56px;
+  transition:transform .16s var(--ease),background .16s var(--ease)}
+.cta:hover{background:#221F2B;transform:translateY(-2px)}
+.cta:active{transform:scale(.985)}
+.cta[disabled]{opacity:.55;cursor:progress;transform:none}
+.note{text-align:center;font-size:12.4px;color:var(--gray);margin-top:12px;line-height:1.5}
+
+/* alert */
+.alert{display:none;margin-top:14px;border-radius:14px;padding:12px 14px;font-size:13.2px;line-height:1.5}
+.alert.on{display:block}
+.alert.bad{background:rgba(217,48,37,.09);border:1px solid rgba(217,48,37,.3);color:#8E1F18}
+
+/* success */
+.done{display:none}
+.done.on{display:block}
+.done .ok{width:56px;height:56px;border-radius:50%;background:var(--lime);display:flex;align-items:center;justify-content:center}
+.recap{margin-top:18px;border:1.5px dashed var(--line);border-radius:16px;padding:16px}
+.recap .li{display:flex;justify-content:space-between;gap:14px;padding:8px 0;font-size:13.5px;border-bottom:1px solid rgba(23,22,28,.07)}
+.recap .li:last-child{border-bottom:none}
+.recap .li b{font-weight:700;text-align:right}
+.acts{display:grid;grid-template-columns:1fr;gap:10px;margin-top:18px}
+@media(min-width:560px){.acts{grid-template-columns:1fr 1fr}}
+.btn2{border-radius:14px;padding:16px;font-family:var(--disp);font-weight:700;font-size:13px;cursor:pointer;
+  border:1.5px solid var(--line);background:var(--white);color:var(--ink);min-height:52px;text-decoration:none;
+  display:flex;align-items:center;justify-content:center;gap:8px;transition:transform .16s var(--ease)}
+.btn2.primary{background:var(--lime);border-color:var(--lime)}
+.btn2:hover{transform:translateY(-2px)}
+.btn2:active{transform:scale(.985)}
+
+/* sticky price bar (mobile) */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(241,240,234,.92);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+.bar .in{display:flex;align-items:center;gap:12px;max-width:640px;margin:0 auto}
+.bar .p{font-family:var(--disp);font-weight:900;font-size:19px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.bar .n{font-size:11.5px;color:var(--gray)}
+.bar button{margin-left:auto;border:none;border-radius:13px;background:var(--ink);color:var(--lime);
+  font-family:var(--disp);font-weight:900;font-size:13px;padding:14px 18px;min-height:48px;cursor:pointer}
+/* body, а не main: у main класс .wrap перебивает тег по специфичности */
+@media(max-width:900px){.bar{display:block}body{padding-bottom:calc(98px + env(safe-area-inset-bottom))}}
+
+footer{padding:26px 0 40px;color:var(--gray);font-size:12.4px;line-height:1.6;text-align:center}
+
+@media(max-width:900px){
+  a,button,label{-webkit-tap-highlight-color:rgba(217,242,74,.22);touch-action:manipulation}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="wrap top"><a class="back" href="index.html">← К конференции</a></div>
+
+<main class="wrap">
+  <div class="bento">
+
+    <section class="c4 hero">
+      <div class="blob" style="right:-60px;top:-60px;width:190px;height:190px;background:var(--violet);opacity:.9"></div>
+      <div class="blob" style="right:60px;bottom:-80px;width:150px;height:150px;background:var(--verm);opacity:.85"></div>
+      <div class="rel">
+        <p class="eb" style="color:var(--lime)">Участие · ТехнологИИ права 2026</p>
+        <h1 style="margin-top:16px">Стать<br>участником</h1>
+        <p class="sub" style="margin-top:18px;max-width:470px">25–26 сентября 2026, Москва, БЦ «Красные Ворота». Оставьте данные — команда подтвердит участие и пришлёт счёт с QR-кодом или счёт для юрлица. Всё оформляется договором-офертой.</p>
+      </div>
+    </section>
+
+    <aside class="c2 sum" aria-live="polite">
+      <p class="eb">К оплате</p>
+      <div>
+        <div class="price" id="sumPrice">55 000 ₽</div>
+        <div class="tname" id="sumName">Бизнес · оба дня</div>
+        <div class="bonus" id="sumBonus" hidden>✦ Сертификат на 30 000 ₽ для курса «ТехнологИИ для юристов» — при оплате до 30 июля</div>
+      </div>
+    </aside>
+
+    <div class="c2 fact" style="background:var(--white)">
+      <div class="k">350 участников</div>
+      <div class="v" style="color:var(--gray)">юристы, арбитражные управляющие, ТОП-менеджмент</div>
+    </div>
+    <div class="c2 fact" style="background:var(--violet);color:var(--cream)">
+      <div class="k">2 потока · 32 сессии</div>
+      <div class="v" style="opacity:.88">БФЛ, Legal Tech, ИИ и автоматизация юрбизнеса</div>
+    </div>
+    <div class="c2 fact" style="background:var(--verm);color:var(--ink)">
+      <div class="k">Оплата по QR</div>
+      <div class="v" style="opacity:.85">после заявки пришлём счёт: QR-код или для юрлица</div>
+    </div>
+
+    <section class="c6 card">
+      <!-- ФОРМА -->
+      <div id="formWrap">
+        <div class="seg" role="tablist" aria-label="Тип участия">
+          <button type="button" role="tab" aria-selected="true" data-kind="participant">Участник</button>
+          <button type="button" role="tab" aria-selected="false" data-kind="expo">Стенд для компании</button>
+        </div>
+
+        <form id="form" novalidate>
+          <p class="step">1 · Выберите тариф</p>
+          <fieldset class="tar" style="border:none">
+            <legend class="sr">Тариф участия</legend>
+
+            <div><input type="radio" name="tariff" id="t1" value="standart" data-price="35 000 ₽" data-name="Стандарт · 1 день">
+              <label class="tf" for="t1"><span class="n">Стандарт</span><span class="p">35 000 ₽</span><span class="d">любой 1 день на выбор</span></label></div>
+
+            <div><input type="radio" name="tariff" id="t2" value="business" checked data-price="55 000 ₽" data-name="Бизнес · оба дня">
+              <label class="tf" for="t2"><span class="badge">выбор участников</span><span class="n">Бизнес</span><span class="p">55 000 ₽</span><span class="d">оба дня + воркшопы по ИИ</span></label></div>
+
+            <div><input type="radio" name="tariff" id="t3" value="fullpass" data-price="88 000 ₽" data-name="Full Pass">
+              <label class="tf" for="t3"><span class="n">Full Pass</span><span class="p">88 000 ₽</span><span class="d">всё + Спикерская и мастермайнды</span></label></div>
+
+            <div><input type="radio" name="tariff" id="t4" value="corporate" data-price="99 000 ₽" data-name="Корпоративный · 5 мест">
+              <label class="tf" for="t4"><span class="n">Корпоративный</span><span class="p">99 000 ₽</span><span class="d">5 билетов на команду</span></label></div>
+          </fieldset>
+
+          <p class="step" style="margin-top:28px">2 · Ваши данные</p>
+          <div class="fields">
+            <div class="f">
+              <input id="fio" name="fio" placeholder=" " autocomplete="name" required>
+              <label for="fio">ФИО</label>
+              <span class="msg">Укажите, как к вам обращаться</span>
+            </div>
+            <div class="f">
+              <input id="company" name="company" placeholder=" " autocomplete="organization">
+              <label for="company">Компания / место работы (необязательно)</label>
+            </div>
+            <div class="grid2">
+              <div class="f">
+                <input id="email" name="email" type="email" placeholder=" " autocomplete="email" inputmode="email">
+                <label for="email">Email</label>
+                <span class="msg">Проверьте адрес — похоже, есть опечатка</span>
+              </div>
+              <div class="f">
+                <input id="phone" name="phone" type="tel" placeholder=" " autocomplete="tel" inputmode="tel">
+                <label for="phone">Телефон</label>
+                <span class="msg">Проверьте номер</span>
+              </div>
+            </div>
+          </div>
+          <p class="hint" id="contactHint">Оставьте email или телефон — как удобнее для связи и счёта.</p>
+
+          <div class="cons">
+            <p class="t">Оставляя заявку, вы соглашаетесь на обработку персональных данных (ФИО, контакты) организатором конференции «ТехнологИИ права» для оформления участия — в соответствии с <b>152-ФЗ</b>. Участие оформляется договором-офертой; оплата — по счёту с QR-кодом. Согласие может быть отозвано по письменному обращению.</p>
+            <label class="chk" id="chkPdnWrap">
+              <input type="checkbox" id="chkPdn" required>
+              <span>Я даю согласие на обработку персональных данных и ознакомлен(а) с <a href="docs/politika-obrabotki-pdn.html" target="_blank" rel="noopener">Политикой обработки ПДн</a>.</span>
+            </label>
+            <label class="chk">
+              <input type="checkbox" id="chkMkt" name="marketing">
+              <span>Согласен(на) получать информационные и рекламные рассылки (необязательно).</span>
+            </label>
+          </div>
+
+          <div class="alert bad" id="alert" role="alert"></div>
+          <button class="cta" type="submit" id="submit">Забронировать участие →</button>
+          <p class="note">После заявки менеджер подтвердит участие и пришлёт счёт с QR-кодом. Списаний на сайте не происходит.</p>
+        </form>
+      </div>
+
+      <!-- УСПЕХ -->
+      <div id="done" class="done" aria-live="polite">
+        <div class="ok" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#17161C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <h2 style="margin-top:18px;font-size:clamp(21px,2.6vw,28px)" id="doneTitle">Заявка сформирована</h2>
+        <p class="sub" style="color:var(--gray);margin-top:10px" id="doneText">Отправьте её удобным способом — менеджер подтвердит участие и пришлёт счёт с QR-кодом.</p>
+
+        <div class="recap" id="recap"></div>
+
+        <div class="acts" id="acts">
+          <a class="btn2 primary" id="toTg" href="#" target="_blank" rel="noopener">Скопировать и открыть Telegram</a>
+          <a class="btn2" id="toMail" href="#">Отправить письмом</a>
+        </div>
+        <p class="note" id="doneNote">Заявка скопируется в буфер обмена — просто вставьте её в чат.</p>
+        <button class="cta" type="button" id="again" style="background:transparent;color:var(--ink);border:1.5px solid var(--line)">← Изменить заявку</button>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="bar" id="bar" aria-hidden="true">
+  <div class="in">
+    <div><div class="n" id="barName">Бизнес</div><div class="p" id="barPrice">55 000 ₽</div></div>
+    <button type="button" id="barBtn">Забронировать</button>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    ТехнологИИ права · 25–26 сентября 2026 · Москва, БЦ «Красные Ворота»<br>
+    Вопросы: <a href="tel:+78005504088" style="color:var(--gray)">8 800 550-40-88</a> · <a href="mailto:info@pravo.tech" style="color:var(--gray)">info@pravo.tech</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  /* ============ НАСТРОЙКА ОТПРАВКИ ============
+     endpoint: поставьте URL своего бэкенда — форма начнёт слать туда JSON
+               и покажет честное «Заявка отправлена».
+     Пока endpoint = null, заявка формируется и отправляется вручную
+     (Telegram / письмо). На сервере ничего не сохраняется. */
+  var CONFIG = {
+    endpoint: null,
+    telegram: 'kredit_advokat',
+    email: 'info@pravo.tech',
+    consentVersion: '2026-07-10'
+  };
+
+  var $ = function(s){ return document.querySelector(s); };
+  var form = $('#form'), alertBox = $('#alert');
+  var sumPrice = $('#sumPrice'), sumName = $('#sumName'), sumBonus = $('#sumBonus');
+  var barPrice = $('#barPrice'), barName = $('#barName');
+  var radios = [].slice.call(document.querySelectorAll('input[name=tariff]'));
+
+  /* ---- префилл тарифа и бонуса из URL: ?tariff=business&bonus=1 ---- */
+  var qs = new URLSearchParams(location.search);
+  var wanted = qs.get('tariff');
+  if (wanted) {
+    var hit = radios.filter(function(r){ return r.value === wanted; })[0];
+    if (hit) hit.checked = true;
+  }
+  if (qs.get('bonus') === '1') sumBonus.hidden = false;
+
+  function current(){ return radios.filter(function(r){ return r.checked; })[0] || radios[1]; }
+  function syncSummary(){
+    var r = current();
+    sumPrice.textContent = r.dataset.price;
+    sumName.textContent  = r.dataset.name;
+    barPrice.textContent = r.dataset.price;
+    barName.textContent  = r.dataset.name.split(' · ')[0];
+  }
+  radios.forEach(function(r){ r.addEventListener('change', syncSummary); });
+  syncSummary();
+
+  /* ---- сегментированный переключатель ---- */
+  var seg = [].slice.call(document.querySelectorAll('.seg button'));
+  seg.forEach(function(b){
+    b.addEventListener('click', function(){
+      seg.forEach(function(x){ x.setAttribute('aria-selected','false'); });
+      b.setAttribute('aria-selected','true');
+      if (b.dataset.kind === 'expo') {
+        alertBox.className = 'alert bad on';
+        alertBox.textContent = 'Стенды и спонсорство обсуждаем отдельно — напишите нам, подберём формат.';
+      } else {
+        alertBox.className = 'alert bad';
+      }
+    });
+  });
+
+  /* ---- валидация ---- */
+  var reEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  var rePhone = /^\+?[\d\s\-()]{10,18}$/;
+
+  function mark(el, bad){ el.setAttribute('aria-invalid', bad ? 'true' : 'false'); }
+
+  function validate(){
+    var errs = [];
+    var fio = $('#fio'), email = $('#email'), phone = $('#phone'), pdn = $('#chkPdn');
+
+    mark(fio, false); mark(email, false); mark(phone, false);
+    $('#chkPdnWrap').removeAttribute('data-err');
+
+    if (fio.value.trim().length < 2) { mark(fio, true); errs.push(fio); }
+
+    var hasEmail = email.value.trim() !== '', hasPhone = phone.value.trim() !== '';
+    if (hasEmail && !reEmail.test(email.value.trim())) { mark(email, true); errs.push(email); }
+    if (hasPhone && !rePhone.test(phone.value.trim()))  { mark(phone, true); errs.push(phone); }
+    if (!hasEmail && !hasPhone) {
+      mark(email, true); mark(phone, true); errs.push(email);
+      alertBox.className = 'alert bad on';
+      alertBox.textContent = 'Оставьте хотя бы один контакт — email или телефон. Иначе мы не сможем прислать счёт.';
+    }
+    if (!pdn.checked) {
+      $('#chkPdnWrap').setAttribute('data-err','1');
+      errs.push(pdn);
+      if (hasEmail || hasPhone) {
+        alertBox.className = 'alert bad on';
+        alertBox.textContent = 'Без согласия на обработку персональных данных мы не имеем права принять заявку.';
+      }
+    }
+    if (!errs.length) alertBox.className = 'alert bad';
+    return errs;
+  }
+
+  ['#fio','#email','#phone'].forEach(function(sel){
+    $(sel).addEventListener('blur', function(){ if (this.getAttribute('aria-invalid') === 'true') validate(); });
+  });
+  $('#chkPdn').addEventListener('change', function(){ if (this.checked) validate(); });
+
+  /* ---- сборка заявки ---- */
+  function payload(){
+    var r = current();
+    return {
+      tariff: r.value,
+      tariffName: r.dataset.name,
+      price: r.dataset.price,
+      fio: $('#fio').value.trim(),
+      company: $('#company').value.trim(),
+      email: $('#email').value.trim(),
+      phone: $('#phone').value.trim(),
+      consent: {
+        pdn: true,
+        marketing: $('#chkMkt').checked,
+        version: CONFIG.consentVersion,
+        acceptedAt: new Date().toISOString()
+      },
+      page: location.href
+    };
+  }
+  function asText(d){
+    return 'Заявка на участие — ТехнологИИ права 2026\n' +
+      'Тариф: ' + d.tariffName + ' (' + d.price + ')\n' +
+      'ФИО: ' + d.fio + '\n' +
+      (d.company ? 'Компания: ' + d.company + '\n' : '') +
+      (d.email ? 'Email: ' + d.email + '\n' : '') +
+      (d.phone ? 'Телефон: ' + d.phone + '\n' : '') +
+      'Рассылки: ' + (d.consent.marketing ? 'да' : 'нет') + '\n' +
+      'Согласие на ПДн: да (ред. ' + d.consent.version + ')';
+  }
+
+  function showDone(d, sent){
+    $('#formWrap').style.display = 'none';
+    $('#done').classList.add('on');
+    $('#bar').style.display = 'none';
+    var rows = [
+      ['Тариф', d.tariffName], ['К оплате', d.price], ['ФИО', d.fio]
+    ];
+    if (d.company) rows.push(['Компания', d.company]);
+    if (d.email) rows.push(['Email', d.email]);
+    if (d.phone) rows.push(['Телефон', d.phone]);
+    $('#recap').innerHTML = rows.map(function(r){
+      return '<div class="li"><span>' + r[0] + '</span><b>' + r[1].replace(/</g,'&lt;') + '</b></div>';
+    }).join('');
+
+    if (sent) {
+      $('#doneTitle').textContent = 'Заявка отправлена';
+      $('#doneText').textContent = 'Менеджер свяжется с вами и пришлёт счёт с QR-кодом.';
+      $('#acts').style.display = 'none';
+      $('#doneNote').style.display = 'none';
+    } else {
+      var text = asText(d);
+      $('#toTg').addEventListener('click', function(){
+        try { navigator.clipboard.writeText(text); } catch(e){}
+      });
+      $('#toTg').href = 'https://t.me/' + CONFIG.telegram;
+      $('#toMail').href = 'mailto:' + CONFIG.email +
+        '?subject=' + encodeURIComponent('Заявка на участие — ' + d.tariffName) +
+        '&body=' + encodeURIComponent(text);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var errs = validate();
+    if (errs.length) { errs[0].focus(); return; }
+
+    var d = payload(), btn = $('#submit');
+    if (!CONFIG.endpoint) { showDone(d, false); return; }
+
+    btn.disabled = true; btn.textContent = 'Отправляем…';
+    fetch(CONFIG.endpoint, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d)
+    }).then(function(res){
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      showDone(d, true);
+    }).catch(function(){
+      alertBox.className = 'alert bad on';
+      alertBox.textContent = 'Не удалось отправить заявку. Попробуйте ещё раз или напишите нам в Telegram.';
+    }).then(function(){
+      btn.disabled = false; btn.textContent = 'Забронировать участие →';
+    });
+  });
+
+  $('#again').addEventListener('click', function(){
+    $('#done').classList.remove('on');
+    $('#formWrap').style.display = '';
+    $('#bar').style.display = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  $('#barBtn').addEventListener('click', function(){
+    $('#fio').focus({ preventScroll: true });
+    $('#fio').scrollIntoView({ block: 'center', behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>
